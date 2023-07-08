@@ -11,8 +11,6 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var v: Vector2 = parent.actual_velocity
 	var pos: Vector2 = parent.global_position
-	
-	print(v)
 
 	if v.length() > 0:
 		look_dir = v.normalized()
