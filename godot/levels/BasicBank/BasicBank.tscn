@@ -1,13 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c12opm4xhyhoc"]
+[gd_scene load_steps=5 format=3 uid="uid://c12opm4xhyhoc"]
 
+[ext_resource type="Script" path="res://levels/BasicBank/BasicBank.gd" id="1_b2op2"]
 [ext_resource type="TileSet" uid="uid://g45jomgt526t" path="res://levels/ModernTileset.tres" id="3_a6u6l"]
+[ext_resource type="Script" path="res://characters/PathFinder.gd" id="3_majci"]
 [ext_resource type="PackedScene" uid="uid://bdyrme6n1gp65" path="res://characters/guard/Guard.tscn" id="4_3aiya"]
-[ext_resource type="Script" path="res://characters/guard/Guard.gd" id="4_lfhdd"]
 
-[node name="BasicBank" type="Node"]
+[node name="BasicBank" type="Node2D"]
+script = ExtResource("1_b2op2")
 
 [node name="TileMap" type="TileMap" parent="."]
-unique_name_in_owner = true
 position = Vector2(-841, -458)
 tile_set = ExtResource("3_a6u6l")
 format = 2
@@ -35,6 +36,7 @@ layer_3/y_sort_origin = 0
 layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array(-131056, 786435, 47, -65520, 786435, 48, -65519, 786435, 49, 17, 786435, 50, -65518, 851971, 49, 18, 851971, 50, -131053, 786435, 47, -65517, 786435, 48, -131042, 786435, 47, -65506, 786435, 48, -65505, 786435, 49, 31, 786435, 50, -65504, 851971, 49, 32, 851971, 50, -131039, 786435, 47, -65503, 786435, 48, -131036, 786435, 47, -65500, 786435, 48, -65499, 786435, 49, 37, 786435, 50, -65498, 851971, 49, 38, 851971, 50, -131033, 786435, 47, -65497, 786435, 48, 1310752, 851971, 26, 1376288, 851971, 27, 1310753, 917507, 26, 1376289, 917507, 27, 1310754, 983043, 26, 1376290, 983043, 27, 1310755, 655363, 26, 1376291, 655363, 27, 1310756, 720899, 26, 1376292, 720899, 27, 1310757, 786435, 26, 1376293, 786435, 27, 917540, 655363, 24, 983076, 655363, 25, 524320, 851971, 28, 589856, 851971, 29, 524321, 917507, 28, 589857, 917507, 29, 524322, 983043, 28, 589858, 983043, 29, 917536, 458755, 26, 983072, 458755, 27, 917537, 524291, 26, 983073, 524291, 27, 917538, 589827, 26, 983074, 589827, 27, 524323, 851971, 13, 589859, 851971, 27, 524324, 917507, 13, 589860, 917507, 14, 524325, 983043, 13, 589861, 983043, 27)
 
-[node name="Guard" parent="." instance=ExtResource("4_3aiya")]
+[node name="Guard" parent="." node_paths=PackedStringArray("map") instance=ExtResource("4_3aiya")]
 position = Vector2(-151, -99)
-script = ExtResource("4_lfhdd")
+script = ExtResource("3_majci")
+map = NodePath("../TileMap")
