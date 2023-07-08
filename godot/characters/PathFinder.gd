@@ -4,6 +4,7 @@ const SPEED = 300.0
 
 @export var map: TileMap
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
+var actual_velocity: Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	agent.set_navigation_map(map);
@@ -17,6 +18,7 @@ func _physics_process(_delta: float) -> void:
 
 func _on_velocity_computed(safe_velocity: Vector2):
 	velocity = safe_velocity
+	actual_velocity = safe_velocity
 	move_and_slide()
 
 func handle_move():

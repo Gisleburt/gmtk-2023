@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bdyrme6n1gp65"]
+[gd_scene load_steps=5 format=3 uid="uid://bdyrme6n1gp65"]
 
 [ext_resource type="PackedScene" uid="uid://vnlyjkbfe60o" path="res://characters/guard/GuardAnimatedSprite.tscn" id="1_m56bv"]
+[ext_resource type="Texture2D" uid="uid://bbm4qmcdpcjht" path="res://assets/Vision.png" id="2_70wy7"]
+[ext_resource type="Script" path="res://characters/guard/VisionCone.gd" id="2_w6ep7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dnqw4"]
 size = Vector2(48, 48)
@@ -18,3 +20,7 @@ path_postprocessing = 1
 avoidance_enabled = true
 radius = 24.0
 max_speed = 1000.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("2_70wy7")
+script = ExtResource("2_w6ep7")
