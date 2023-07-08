@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtbxtp1i8cuyf"]
+
+[ext_resource type="PackedScene" uid="uid://c12opm4xhyhoc" path="res://levels/BasicBank/BasicBank.tscn" id="1_8qcvu"]
+[ext_resource type="Script" path="res://Camera2D.gd" id="1_repnw"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-50, -493)
+script = ExtResource("1_repnw")
+
+[node name="BasicBank" parent="." instance=ExtResource("1_8qcvu")]
+position = Vector2(-1078, -949)
