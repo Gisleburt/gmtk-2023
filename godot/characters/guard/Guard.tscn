@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdyrme6n1gp65"]
+[gd_scene load_steps=6 format=3 uid="uid://bdyrme6n1gp65"]
 
 [ext_resource type="PackedScene" uid="uid://vnlyjkbfe60o" path="res://characters/guard/GuardAnimatedSprite.tscn" id="1_m56bv"]
 [ext_resource type="Texture2D" uid="uid://bbm4qmcdpcjht" path="res://assets/Vision.png" id="2_70wy7"]
+[ext_resource type="Script" path="res://characters/guard/GuardAnimatedSprite.gd" id="2_kq7u3"]
 [ext_resource type="Script" path="res://characters/guard/VisionCone.gd" id="2_w6ep7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dnqw4"]
@@ -11,6 +12,7 @@ size = Vector2(48, 48)
 
 [node name="GuardAnimatedSprite" parent="." instance=ExtResource("1_m56bv")]
 position = Vector2(0, -24)
+script = ExtResource("2_kq7u3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_dnqw4")
