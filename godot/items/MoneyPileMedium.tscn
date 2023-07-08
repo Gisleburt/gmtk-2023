@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6wjfih3ic3sh"]
+
+[ext_resource type="Script" path="res://items/MoneyPile.gd" id="1_fedwy"]
+[ext_resource type="TileSet" uid="uid://g45jomgt526t" path="res://levels/ModernTileset.tres" id="2_p2w7v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1ch5"]
+size = Vector2(48, 48)
+
+[node name="MoneyPileMedium" type="Area2D" groups=["Money"]]
+script = ExtResource("1_fedwy")
+value = 200
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-24, -72)
+tile_set = ExtResource("2_p2w7v")
+format = 2
+layer_0/tile_data = PackedInt32Array(0, 851971, 47, 65536, 851971, 48)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_v1ch5")

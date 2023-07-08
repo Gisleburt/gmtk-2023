@@ -10,7 +10,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			mouse_button_left_held = event.is_pressed()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if mouse_button_left_held:
 		guard.set_target(get_global_mouse_position())
 
