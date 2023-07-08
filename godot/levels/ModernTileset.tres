@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=32 format=3 uid="uid://g45jomgt526t"]
+[gd_resource type="TileSet" load_steps=33 format=3 uid="uid://g45jomgt526t"]
 
 [ext_resource type="Texture2D" uid="uid://gxloq16w0ntr" path="res://assets/tilesets/2_City_Terrains_48x48.png" id="1_81d2t"]
 [ext_resource type="Texture2D" uid="uid://bos0qpoxxhlot" path="res://assets/tilesets/3_City_Props_48x48.png" id="2_r8jca"]
@@ -20216,6 +20216,8 @@ vertices = PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-24, -24, 24, -24, 24, 24, -24, 24)])
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_6vaw4"]
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wwgyi"]
 resource_name = "RoomBuilderFloors"
 texture = ExtResource("5_lb1an")
@@ -21912,10 +21914,15 @@ texture_region_size = Vector2i(48, 48)
 4:37/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:37/0/physics_layer_0/angular_velocity = 0.0
 4:37/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_2ql6q")
+5:37/next_alternative_id = 2
 5:37/0 = 0
 5:37/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:37/0/physics_layer_0/angular_velocity = 0.0
 5:37/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_2ql6q")
+5:37/1 = 1
+5:37/1/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:37/1/physics_layer_0/angular_velocity = 0.0
+5:37/1/navigation_layer_0/polygon = SubResource("NavigationPolygon_6vaw4")
 6:37/0 = 0
 6:37/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:37/0/physics_layer_0/angular_velocity = 0.0

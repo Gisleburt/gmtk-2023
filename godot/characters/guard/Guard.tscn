@@ -5,17 +5,18 @@
 [ext_resource type="Texture2D" uid="uid://bbm4qmcdpcjht" path="res://assets/Vision.png" id="2_70wy7"]
 [ext_resource type="Script" path="res://characters/guard/VisionCone.gd" id="2_w6ep7"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnqw4"]
-size = Vector2(48, 48)
+[sub_resource type="CircleShape2D" id="CircleShape2D_025hh"]
+radius = 24.0
 
 [node name="Guard" type="CharacterBody2D"]
+collision_layer = 0
 
 [node name="GuardAnimatedSprite" parent="." instance=ExtResource("1_3jw1r")]
 position = Vector2(0, -24)
 script = ExtResource("2_2ipc7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_dnqw4")
+shape = SubResource("CircleShape2D_025hh")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
