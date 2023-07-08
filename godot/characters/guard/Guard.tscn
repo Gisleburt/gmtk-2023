@@ -25,6 +25,7 @@ radius = 24.0
 max_speed = 1000.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+blend_mode = 2
 shadow_enabled = true
 texture = ExtResource("2_70wy7")
 script = ExtResource("2_w6ep7")
