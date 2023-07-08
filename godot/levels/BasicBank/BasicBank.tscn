@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c12opm4xhyhoc"]
+[gd_scene load_steps=6 format=3 uid="uid://c12opm4xhyhoc"]
 
 [ext_resource type="Script" path="res://levels/BasicBank/BasicBank.gd" id="1_b2op2"]
 [ext_resource type="TileSet" uid="uid://g45jomgt526t" path="res://levels/ModernTileset.tres" id="3_a6u6l"]
 [ext_resource type="Script" path="res://characters/PathFinder.gd" id="3_majci"]
 [ext_resource type="PackedScene" uid="uid://bdyrme6n1gp65" path="res://characters/guard/Guard.tscn" id="4_3aiya"]
+[ext_resource type="PackedScene" uid="uid://bdtgc5vwyy7xo" path="res://characters/ninja/Ninja.tscn" id="5_hnmn8"]
 
 [node name="BasicBank" type="Node2D"]
 script = ExtResource("1_b2op2")
@@ -40,3 +41,6 @@ layer_3/tile_data = PackedInt32Array(-131056, 786435, 47, -65520, 786435, 48, -6
 position = Vector2(-151, -99)
 script = ExtResource("3_majci")
 map = NodePath("../TileMap")
+
+[node name="Ninja" parent="." instance=ExtResource("5_hnmn8")]
+position = Vector2(47, 659)

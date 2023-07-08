@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdtgc5vwyy7xo"]
+
+[ext_resource type="PackedScene" uid="uid://bxtq6mpq3urj7" path="res://characters/ninja/NinjaAnimatedSprite.tscn" id="1_lj3li"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0mbip"]
+size = Vector2(46, 46)
+
+[node name="Ninja" type="CharacterBody2D"]
+
+[node name="NinjaAnimatedSprite" parent="." instance=ExtResource("1_lj3li")]
+position = Vector2(0, -24)
+animation = &"idleDown"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0mbip")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

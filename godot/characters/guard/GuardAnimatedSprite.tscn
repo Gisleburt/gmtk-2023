@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://vnlyjkbfe60o"]
+[gd_scene load_steps=51 format=3 uid="uid://cf3gieukg3ta2"]
 
 [ext_resource type="Texture2D" uid="uid://n6p2uhvmlyf2" path="res://assets/spritesheets/Guard.png" id="1_576ue"]
 
@@ -455,4 +455,4 @@ animations = [{
 
 [node name="GuardAnimatedSprite" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_uu2th")
-animation = &"idleUp"
+animation = &"runDown"
