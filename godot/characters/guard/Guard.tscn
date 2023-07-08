@@ -14,3 +14,7 @@ position = Vector2(0, -24)
 shape = SubResource("RectangleShape2D_dnqw4")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 24.0
+max_speed = 1000.0
