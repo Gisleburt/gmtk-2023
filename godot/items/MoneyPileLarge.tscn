@@ -8,6 +8,7 @@ radius = 26.0
 height = 84.0
 
 [node name="MoneyPileLarge" type="Area2D" groups=["Money"]]
+collision_mask = 7
 script = ExtResource("1_cqv45")
 value = 200
 

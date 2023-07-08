@@ -7,6 +7,7 @@
 radius = 20.0
 
 [node name="MoneyPileSmall" type="Area2D" groups=["Money"]]
+collision_mask = 7
 script = ExtResource("1_dnl7r")
 
 [node name="TileMap" type="TileMap" parent="."]
