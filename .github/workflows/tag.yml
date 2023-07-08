@@ -7,7 +7,8 @@ on:
 
 env:
   GODOT_VERSION: 4.1
-  EXPORT_NAME: godot
+  PROJECT_PATH: godot
+  EXPORT_NAME: foil
 
 jobs:
   export-windows:
@@ -22,12 +23,13 @@ jobs:
           lfs: true
       - name: Setup
         run: |
+          whoami
           mkdir -v -p ~/.local/share/godot/templates
           mv /root/.local/share/godot/templates/${GODOT_VERSION}.stable ~/.local/share/godot/templates/${GODOT_VERSION}.stable
       - name: Windows Build
         run: |
           mkdir -v -p build/windows
-          cd $EXPORT_NAME
+          cd $PROJECT_PATH
           godot -v --headless --export-release "Windows Desktop" ../build/windows/$EXPORT_NAME.exe
       - name: Upload Artifact to Itch
         env:
@@ -35,6 +37,7 @@ jobs:
           ITCHIO_GAME: ${{ secrets.ITCHIO_GAME }}
           BUTLER_API_KEY: ${{ secrets.BUTLER_API_KEY }}
         run: |
+          ls ./build/windows
           butler push ./build/windows $ITCHIO_USERNAME/$ITCHIO_GAME:windows --userversion ${GITHUB_REF#refs/*/}
 
   export-linux:
@@ -54,7 +57,7 @@ jobs:
       - name: Linux Build
         run: |
           mkdir -v -p build/linux
-          cd $EXPORT_NAME
+          cd $PROJECT_PATH
           godot -v --headless --export-release "Linux/X11" ../build/linux/$EXPORT_NAME.x86_64
       - name: Upload Artifact to Itch
         env:
@@ -81,7 +84,7 @@ jobs:
       - name: Web Build
         run: |
           mkdir -v -p build/web
-          cd $EXPORT_NAME
+          cd $PROJECT_PATH
           godot -v --headless --export-release "HTML5" ../build/web/index.html
       - name: Upload Artifact to Itch
         env:
@@ -108,7 +111,7 @@ jobs:
       - name: Mac Build
         run: |
           mkdir -v -p build/mac
-          cd $EXPORT_NAME
+          cd $PROJECT_PATH
           godot -v --headless --export-release "Mac OSX" ../build/mac/$EXPORT_NAME.zip
       - name: Upload Artifact to Itch
         env:
