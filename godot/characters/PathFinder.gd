@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
+class_name PathFinder
+
 @export var speed: float = 300.0
 
 @export var map: TileMap
 @onready var agent: NavigationAgent2D = $NavigationAgent2D
 var actual_velocity: Vector2 = Vector2.ZERO
+var very_bad_cycle_counter: int = 3
 
 func _ready() -> void:
 	agent.set_navigation_map(map);
@@ -22,6 +25,10 @@ func set_target(target: Vector2) -> void:
 	agent.set_target_position(target)
 
 func handle_move():
+	if very_bad_cycle_counter > 0:
+		very_bad_cycle_counter -= 1
+		return
+	
 	if agent.is_navigation_finished():
 		return
 	
