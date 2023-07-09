@@ -38,14 +38,17 @@ func run_away() -> void:
 		set_target(viable_targets[index])
 
 func escape() -> void:
-	var exit_points = get_tree().get_nodes_in_group("ExitPoint")
+	current_behaviour = Behaviour.ESCAPING
+	var exit_points: Array = get_tree() \
+		.get_nodes_in_group("ExitPoint") \
+		.map(area_to_pos)
 
 	if guard_visible:
 		exit_points.sort_custom(angle_away_from_guard_sort)
 		set_target(exit_points[0])
 		return
 	
-	set_target(exit_points[randi() % exit_points.size()].global_position)
+	set_target(exit_points[randi() % exit_points.size()])
 
 func cell_cords(tile: Vector2i) -> Vector2:
 	return map.to_global(map.map_to_local(tile)) + Vector2(24, 24)
@@ -70,10 +73,15 @@ func guard_detected(body: Node2D) -> void:
 		escape() # look for a different way out
 
 func angle_away_from_guard(pos: Vector2) -> float:
-	return absf(guard.get_angle_to(pos))
+	var vector_to_guard: Vector2 = guard.global_position - global_position
+	var vector_to_pos: Vector2 = pos - global_position
+	return absf(vector_to_guard.angle_to(vector_to_pos))
 
 func angle_away_from_guard_sort(a: Vector2, b: Vector2) -> bool:
 	return angle_away_from_guard(a) > angle_away_from_guard(b)
 
 func guard_lost() -> void:
 	guard_visible = false
+
+func area_to_pos(area: Area2D) -> Vector2:
+	return area.global_position
