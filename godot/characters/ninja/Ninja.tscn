@@ -10,7 +10,7 @@ light_mode = 2
 radius = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0qxyc"]
-radius = 500.0
+radius = 250.0
 
 [node name="Ninja" type="CharacterBody2D" groups=["Ninja"]]
 collision_layer = 4

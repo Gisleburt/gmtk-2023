@@ -1,6 +1,6 @@
 extends PathFinder
 
-enum Behaviour { FINDING_MONEY, RUNNING_AWAY }
+enum Behaviour { FINDING_MONEY, RUNNING_AWAY, ESCAPING }
 
 @export var guard: CharacterBody2D
 @onready var guard_detector: Area2D = $GuardDetector
@@ -13,6 +13,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if agent.is_navigation_finished():
+		current_behaviour = Behaviour.FINDING_MONEY
 		set_next_money()
 
 func set_next_money() -> void:
@@ -21,14 +22,17 @@ func set_next_money() -> void:
 		set_target(money[randi() % money.size()].global_position)
 
 func run_away() -> void:
-	var viable_targets = map.get_used_cells(0) \
-		.map(cell_cords) \
-		.filter(is_guard_in_that_direction)
-	
-	if viable_targets.size() > 0:
-		viable_targets.sort_custom(distance_to_guard_sort)
-		var index = randi() % roundi(viable_targets.size() * 0.25)
-		set_target(viable_targets[index])
+	if current_behaviour != Behaviour.RUNNING_AWAY:
+		current_behaviour = Behaviour.RUNNING_AWAY
+
+		var viable_targets = map.get_used_cells(0) \
+			.map(cell_cords) \
+			.filter(is_guard_in_that_direction)
+
+		if viable_targets.size() > 0:
+			viable_targets.sort_custom(distance_to_guard_sort)
+			var index = randi() % roundi(viable_targets.size() * 0.25)
+			set_target(viable_targets[index])
 
 func cell_cords(tile: Vector2i) -> Vector2:
 	return map.to_global(map.map_to_local(tile)) + Vector2(24, 24)
