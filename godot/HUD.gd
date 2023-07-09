@@ -4,6 +4,9 @@ class_name HUD
 
 const ninja_activity_base: String = "Ninja Activity: "
 const money_remaining_base: String = "Money Remaining: £"
+const game_over_base: String = "GAME OVER:
+
+"
 
 @onready var money_remaining: Label = $MoneyRemaining
 @onready var ninja_activity: Label = $NinjaActivity
@@ -51,6 +54,11 @@ func play() -> void:
 	back_to_menu.visible = false
 	
 func end(won: bool, remaining_money: int) -> void:
+	set_money_remaining(remaining_money)
+	if won:
+		result.text = game_over_base + "You caught the Ninja, congratulations!"
+	else:
+		result.text = game_over_base + "The ninja escaped with £" + str(remaining_money)
 	money_remaining.visible = false
 	ninja_activity.visible = false
 	start_button.visible = false

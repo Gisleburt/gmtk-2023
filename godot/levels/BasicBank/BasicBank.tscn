@@ -41,14 +41,14 @@ layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array(1310752, 851971, 26, 1376288, 851971, 27, 1310753, 917507, 26, 1376289, 917507, 27, 1310754, 983043, 26, 1376290, 983043, 27, 1310755, 655363, 26, 1376291, 655363, 27, 1310756, 720899, 26, 1376292, 720899, 27, 1310757, 786435, 26, 1376293, 786435, 27, 917540, 655363, 24, 983076, 655363, 25, 524320, 851971, 28, 589856, 851971, 29, 524321, 917507, 28, 589857, 917507, 29, 524322, 983043, 28, 589858, 983043, 29, 917536, 458755, 26, 983072, 458755, 27, 917537, 524291, 26, 983073, 524291, 27, 917538, 589827, 26, 983074, 589827, 27, 524323, 851971, 13, 589859, 851971, 27, 524324, 917507, 13, 589860, 917507, 14, 524325, 983043, 13, 589861, 983043, 27)
 
 [node name="Ninja" parent="." node_paths=PackedStringArray("guard", "map") instance=ExtResource("5_hnmn8")]
-position = Vector2(30, -123)
+position = Vector2(26, -112)
+collision_mask = 7
 script = ExtResource("4_usr66")
 guard = NodePath("../Guard")
 map = NodePath("../TileMap")
 
 [node name="Guard" parent="." node_paths=PackedStringArray("map") instance=ExtResource("4_3aiya")]
-position = Vector2(102, -120)
-collision_layer = 0
+position = Vector2(835, 685)
 script = ExtResource("3_majci")
 map = NodePath("../TileMap")
 
@@ -58,10 +58,28 @@ enabled = false
 [node name="Money" type="Node" parent="."]
 
 [node name="MoneyPileLarge" parent="Money" instance=ExtResource("7_q1evs")]
-position = Vector2(186, -111)
+position = Vector2(203, -119)
 
 [node name="MoneyPileLarge2" parent="Money" instance=ExtResource("7_q1evs")]
-position = Vector2(-133, -117)
+position = Vector2(-145, -117)
+
+[node name="MoneyPileLarge3" parent="Money" instance=ExtResource("7_q1evs")]
+position = Vector2(164, 629)
+
+[node name="MoneyPileLarge4" parent="Money" instance=ExtResource("7_q1evs")]
+position = Vector2(1057, 416)
+
+[node name="MoneyPileLarge5" parent="Money" instance=ExtResource("7_q1evs")]
+position = Vector2(-142, 455)
+
+[node name="MoneyPileLarge6" parent="Money" instance=ExtResource("7_q1evs")]
+position = Vector2(646, 111)
+
+[node name="MoneyPileLarge7" parent="Money" instance=ExtResource("7_q1evs")]
+position = Vector2(1060, -39)
+
+[node name="MoneyPileLarge8" parent="Money" instance=ExtResource("7_q1evs")]
+position = Vector2(694, -489)
 
 [node name="ExitPoints" type="Node" parent="."]
 
@@ -69,5 +87,12 @@ position = Vector2(-133, -117)
 position = Vector2(22, 718)
 rotation = 3.14159
 
+[node name="ExitPoint3" parent="ExitPoints" instance=ExtResource("8_doxyk")]
+position = Vector2(837, 718)
+rotation = 3.14159
+
 [node name="ExitPoint2" parent="ExitPoints" instance=ExtResource("8_doxyk")]
 position = Vector2(22, -530)
+
+[node name="ExitPoint4" parent="ExitPoints" instance=ExtResource("8_doxyk")]
+position = Vector2(981, -530)

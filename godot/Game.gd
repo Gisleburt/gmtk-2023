@@ -64,7 +64,7 @@ func end(did_player_win: bool) -> void:
 	hud.end(did_player_win, money_remaining)
 	get_tree().paused = true
 	$Camera2D.enabled = false
-	get_tree().get_nodes_in_group("Guard")[0].enabled = true
+	get_tree().get_nodes_in_group("PlayerCamera")[0].enabled = true
 
 func guard_caught_ninja() -> void:
 	if game_state == GameState.PLAYING:

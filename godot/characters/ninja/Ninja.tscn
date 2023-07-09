@@ -1,15 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://bdtgc5vwyy7xo"]
+[gd_scene load_steps=7 format=3 uid="uid://bdtgc5vwyy7xo"]
 
 [ext_resource type="PackedScene" uid="uid://bxtq6mpq3urj7" path="res://characters/ninja/NinjaAnimatedSprite.tscn" id="1_lj3li"]
 [ext_resource type="Script" path="res://characters/CharacterAnimation.gd" id="2_s0faw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tmj2u"]
+light_mode = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_663rl"]
-radius = 24.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0qxyc"]
 radius = 250.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3uyuc"]
+radius = 30.0
 
 [node name="Ninja" type="CharacterBody2D" groups=["Ninja"]]
 collision_layer = 4
@@ -39,4 +42,4 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GuardCollider"]
-shape = SubResource("CircleShape2D_663rl")
+shape = SubResource("CircleShape2D_3uyuc")

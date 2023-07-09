@@ -7,7 +7,8 @@
 size = Vector2(48, 48)
 
 [node name="MoneyPileMedium" type="Area2D" groups=["Money"]]
-collision_mask = 7
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("1_fedwy")
 value = 200
 
