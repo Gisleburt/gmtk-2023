@@ -1,5 +1,7 @@
 extends PathFinder
 
+class_name MoneyFinder
+
 enum Behaviour { FINDING_MONEY, RUNNING_AWAY, ESCAPING }
 
 @export var guard: CharacterBody2D
@@ -63,7 +65,7 @@ func distance_to_guard_sort(a: Vector2, b: Vector2) -> bool:
 func distance_squared_to_guard(pos: Vector2) -> float:
 	return guard.global_position.distance_squared_to(pos)
 
-func guard_detected(body: Node2D) -> void:
+func guard_detected(_body: Node2D) -> void:
 	guard_visible = true
 
 	if current_behaviour == Behaviour.FINDING_MONEY:
@@ -80,7 +82,7 @@ func angle_away_from_guard(pos: Vector2) -> float:
 func angle_away_from_guard_sort(a: Vector2, b: Vector2) -> bool:
 	return angle_away_from_guard(a) > angle_away_from_guard(b)
 
-func guard_lost() -> void:
+func guard_lost(_body: Node2D) -> void:
 	guard_visible = false
 
 func area_to_pos(area: Area2D) -> Vector2:

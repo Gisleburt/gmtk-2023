@@ -1,16 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtbxtp1i8cuyf"]
+[gd_scene load_steps=5 format=3 uid="uid://dtbxtp1i8cuyf"]
 
 [ext_resource type="PackedScene" uid="uid://c12opm4xhyhoc" path="res://levels/BasicBank/BasicBank.tscn" id="1_8qcvu"]
+[ext_resource type="Script" path="res://Game.gd" id="1_mglqd"]
 [ext_resource type="Script" path="res://Camera2D.gd" id="1_repnw"]
+[ext_resource type="PackedScene" uid="uid://da5auwob05d7l" path="res://HUD.tscn" id="4_arlej"]
 
 [node name="Game" type="Node2D"]
+script = ExtResource("1_mglqd")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-11, -12)
-enabled = false
 script = ExtResource("1_repnw")
 
-[node name="BasicBank" parent="." instance=ExtResource("1_8qcvu")]
+[node name="Map" parent="." instance=ExtResource("1_8qcvu")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.192157, 0.192157, 0.192157, 1)
+
+[node name="HUD" parent="." node_paths=PackedStringArray("game") instance=ExtResource("4_arlej")]
+game = NodePath("..")

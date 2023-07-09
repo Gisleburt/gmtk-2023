@@ -1,0 +1,121 @@
+[gd_scene load_steps=5 format=3 uid="uid://da5auwob05d7l"]
+
+[ext_resource type="Script" path="res://HUD.gd" id="1_3n042"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_va7hl"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_dqctt"]
+font_size = 24
+
+[sub_resource type="LabelSettings" id="LabelSettings_v8pb7"]
+font_size = 24
+
+[node name="HUD" type="CanvasLayer" groups=["HUD"]]
+script = ExtResource("1_3n042")
+
+[node name="MoneyRemaining" type="Label" parent="."]
+visible = false
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 297.0
+offset_bottom = 57.0
+text = "Money Remaining: 5000"
+label_settings = SubResource("LabelSettings_va7hl")
+
+[node name="NinjaActivity" type="Label" parent="."]
+visible = false
+offset_left = 20.0
+offset_top = 60.0
+offset_right = 357.0
+offset_bottom = 97.0
+text = "Ninja Activity: Finding Money"
+label_settings = SubResource("LabelSettings_dqctt")
+
+[node name="Instructions" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -443.0
+offset_right = 443.0
+offset_bottom = 230.0
+grow_horizontal = 2
+text = "A Ninja has broken in and is stealing money
+The Ninja won't push their luck and will try to escape once they have enough
+Find the Ninja before they escape
+Use the mouse to move the Guard
+The Ninja is only visible in the light"
+label_settings = SubResource("LabelSettings_v8pb7")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="StartButton" type="Button" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -52.5
+offset_right = 135.0
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Start Game"
+
+[node name="Credits" type="RichTextLabel" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -108.0
+offset_top = -238.0
+offset_right = 108.0
+grow_horizontal = 2
+grow_vertical = 0
+bbcode_enabled = true
+text = "Credits:
+
+Daniel Mason:
+    Game Design
+    Programming
+
+[url=https://limezu.itch.io]LimeZu[/url]:
+    [url=https://limezu.itch.io/modernoffice]Modern Office Tileset[/url]
+    [url=https://limezu.itch.io/moderninteriors]Modern Interiors Tileset[/url]
+    [url=https://limezu.itch.io/modernexteriors]Modern Exteriors[/url]"
+
+[node name="Result" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -443.0
+offset_right = 443.0
+offset_bottom = 230.0
+grow_horizontal = 2
+text = "GAME OVER:
+
+The ninja escaped with $5000"
+label_settings = SubResource("LabelSettings_v8pb7")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BackToMenu" type="Button" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -52.5
+offset_right = 135.0
+offset_bottom = 52.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Back to Menu"
