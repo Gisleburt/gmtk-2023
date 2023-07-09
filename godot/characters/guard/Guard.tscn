@@ -8,8 +8,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_025hh"]
 radius = 24.0
 
-[node name="Guard" type="CharacterBody2D"]
-collision_layer = 0
+[node name="Guard" type="CharacterBody2D" groups=["Guard"]]
+collision_layer = 2
+collision_mask = 7
 
 [node name="GuardAnimatedSprite" parent="." instance=ExtResource("1_3jw1r")]
 position = Vector2(0, -24)
