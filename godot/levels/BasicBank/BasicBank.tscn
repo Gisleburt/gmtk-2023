@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://c12opm4xhyhoc"]
+[gd_scene load_steps=9 format=3 uid="uid://c12opm4xhyhoc"]
 
 [ext_resource type="Script" path="res://levels/BasicBank/BasicBank.gd" id="1_b2op2"]
 [ext_resource type="TileSet" uid="uid://g45jomgt526t" path="res://levels/ModernTileset.tres" id="3_a6u6l"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://characters/MoneyFinder.gd" id="4_usr66"]
 [ext_resource type="PackedScene" uid="uid://bdtgc5vwyy7xo" path="res://characters/ninja/Ninja.tscn" id="5_hnmn8"]
 [ext_resource type="PackedScene" uid="uid://bjqovqul456dj" path="res://items/MoneyPileLarge.tscn" id="7_q1evs"]
+[ext_resource type="PackedScene" uid="uid://bdoi5obp8n1mp" path="res://items/ExitPoint.tscn" id="8_doxyk"]
 
 [node name="BasicBank" type="Node2D"]
 script = ExtResource("1_b2op2")
@@ -60,3 +61,12 @@ position = Vector2(186, -111)
 
 [node name="MoneyPileLarge2" parent="Money" instance=ExtResource("7_q1evs")]
 position = Vector2(-133, -117)
+
+[node name="ExitPoints" type="Node" parent="."]
+
+[node name="ExitPoint" parent="ExitPoints" instance=ExtResource("8_doxyk")]
+position = Vector2(22, 718)
+rotation = 3.14159
+
+[node name="ExitPoint2" parent="ExitPoints" instance=ExtResource("8_doxyk")]
+position = Vector2(22, -530)
