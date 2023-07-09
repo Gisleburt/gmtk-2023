@@ -10,7 +10,7 @@ radius = 24.0
 
 [node name="Guard" type="CharacterBody2D" groups=["Guard"]]
 collision_layer = 2
-collision_mask = 7
+collision_mask = 0
 
 [node name="GuardAnimatedSprite" parent="." instance=ExtResource("1_3jw1r")]
 position = Vector2(0, -24)

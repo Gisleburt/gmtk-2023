@@ -6,11 +6,15 @@ enum Behaviour { FINDING_MONEY, RUNNING_AWAY, ESCAPING }
 
 @export var guard: CharacterBody2D
 @onready var guard_detector: Area2D = $GuardDetector
+@onready var guard_collider: Area2D = $GuardCollider
+
+
 var current_behaviour: Behaviour = Behaviour.FINDING_MONEY
 var guard_visible: bool = false
 
 func _ready() -> void:
 	super()
+	guard_collider.connect("body_entered", handle_collision)
 	guard_detector.connect("body_entered", guard_detected)
 	guard_detector.connect("body_exited", guard_lost)
 	set_next_money()
@@ -20,19 +24,23 @@ func _process(_delta: float) -> void:
 		if current_behaviour == Behaviour.ESCAPING:
 			get_tree().get_nodes_in_group("Game")[0].ninja_escaped()
 			return
-		current_behaviour = Behaviour.FINDING_MONEY
 		set_next_money()
 		get_tree().get_nodes_in_group("Game")[0].calc_money_remaining()
+
+func set_current_behaviour(behaviour: Behaviour) -> void:
+	current_behaviour = behaviour
+	get_tree().get_nodes_in_group("HUD")[0].set_ninja_activity(behaviour)
 
 func set_next_money() -> void:
 	var money: Array = get_tree().get_nodes_in_group("Money");
 	if money.size() > 0:
+		set_current_behaviour(Behaviour.FINDING_MONEY)
 		set_target(money[randi() % money.size()].global_position)
 	else:
 		escape()
 
 func run_away() -> void:
-	current_behaviour = Behaviour.RUNNING_AWAY
+	set_current_behaviour(Behaviour.RUNNING_AWAY)
 
 	var viable_targets = map.get_used_cells(0) \
 		.map(cell_cords) \
@@ -44,7 +52,7 @@ func run_away() -> void:
 		set_target(viable_targets[index])
 
 func escape() -> void:
-	current_behaviour = Behaviour.ESCAPING
+	set_current_behaviour(Behaviour.ESCAPING)
 	var exit_points: Array = get_tree() \
 		.get_nodes_in_group("ExitPoint") \
 		.map(area_to_pos)
@@ -91,3 +99,7 @@ func guard_lost(_body: Node2D) -> void:
 
 func area_to_pos(area: Area2D) -> Vector2:
 	return area.global_position
+
+func handle_collision(body: Node2D) -> void:
+	if body.name == "Guard":
+		get_tree().get_nodes_in_group("Game")[0].guard_caught_ninja()

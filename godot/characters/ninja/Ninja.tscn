@@ -13,7 +13,6 @@ radius = 250.0
 
 [node name="Ninja" type="CharacterBody2D" groups=["Ninja"]]
 collision_layer = 4
-collision_mask = 5
 
 [node name="NinjaAnimatedSprite" parent="." instance=ExtResource("1_lj3li")]
 material = SubResource("CanvasItemMaterial_tmj2u")
@@ -34,3 +33,10 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GuardDetector"]
 shape = SubResource("CircleShape2D_0qxyc")
+
+[node name="GuardCollider" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GuardCollider"]
+shape = SubResource("CircleShape2D_663rl")
