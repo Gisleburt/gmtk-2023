@@ -17,8 +17,12 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if agent.is_navigation_finished():
+		if current_behaviour == Behaviour.ESCAPING:
+			get_tree().get_nodes_in_group("Game")[0].ninja_escaped()
+			return
 		current_behaviour = Behaviour.FINDING_MONEY
 		set_next_money()
+		get_tree().get_nodes_in_group("Game")[0].calc_money_remaining()
 
 func set_next_money() -> void:
 	var money: Array = get_tree().get_nodes_in_group("Money");

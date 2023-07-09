@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://Camera2D.gd" id="1_repnw"]
 [ext_resource type="PackedScene" uid="uid://da5auwob05d7l" path="res://HUD.tscn" id="4_arlej"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" groups=["Game"]]
 script = ExtResource("1_mglqd")
 
 [node name="Camera2D" type="Camera2D" parent="."]

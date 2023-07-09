@@ -18,7 +18,6 @@ const money_remaining_base: String = "Money Remaining: £"
 func _ready() -> void:
 	start_button.connect("button_up", game.play)
 	back_to_menu.connect("button_up", game.start)
-	set_state(Game.GameState.MENU)
 
 func set_ninja_activity(behaviour: MoneyFinder.Behaviour) -> void:
 	$NinjaActivity.text = ninja_activity_base + behaviour_to_string(behaviour)
@@ -33,31 +32,29 @@ func behaviour_to_string(behaviour: MoneyFinder.Behaviour) -> String:
 		return "Escaping"
 	return "Looking for Money"
 
-func set_state(state: Game.GameState) -> void:
-	if state == Game.GameState.MENU:
-		money_remaining.visible = false
-		ninja_activity.visible = false
-		start_button.visible = true
-		instructions.visible = true
-		credits.visible = true
-		result.visible = false
-		back_to_menu.visible = false
-		return
-	if state == Game.GameState.PLAYING:
-		money_remaining.visible = true
-		ninja_activity.visible = true
-		start_button.visible = false
-		instructions.visible = false
-		credits.visible = false
-		result.visible = false
-		back_to_menu.visible = false
-		return
-	if state == Game.GameState.GAME_OVER:
-		money_remaining.visible = false
-		ninja_activity.visible = false
-		start_button.visible = false
-		instructions.visible = false
-		credits.visible = false
-		result.visible = true
-		back_to_menu.visible = true
-		return
+func start() -> void:
+	money_remaining.visible = false
+	ninja_activity.visible = false
+	start_button.visible = true
+	instructions.visible = true
+	credits.visible = true
+	result.visible = false
+	back_to_menu.visible = false
+
+func play() -> void:
+	money_remaining.visible = true
+	ninja_activity.visible = true
+	start_button.visible = false
+	instructions.visible = false
+	credits.visible = false
+	result.visible = false
+	back_to_menu.visible = false
+	
+func end(won: bool, remaining_money: int) -> void:
+	money_remaining.visible = false
+	ninja_activity.visible = false
+	start_button.visible = false
+	instructions.visible = false
+	credits.visible = false
+	result.visible = true
+	back_to_menu.visible = true
